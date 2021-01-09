@@ -12,17 +12,60 @@ npm install --save @doopage/use-modal
 
 ## Usage
 
+### Call function
+in Modal.js
 ```tsx
-import React, { Component } from 'react'
+import { closeModal, useModal } from '@doopage/use-modal'
 
-import MyComponent from '@doopage/use-modal'
-import '@doopage/use-modal/dist/index.css'
-
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
+const Modal = () => {
+  const { open, data } = useModal('modal_name')
+  
+  if (!open) return null
+  return (
+    <div>
+      {/* modal content */}
+      <Button onClick={() => closeModal('modal_name')}>close</Button>
+    </div>
+  )
 }
+
+export default Modal
+```
+
+in somewhere
+```tsx
+import { openModal } from '@doopage/use-modal'
+
+openModal('modal_name')
+```
+
+### use InitModal
+in MyModal.js
+```tsx
+import { closeModal, useModal, initModal } from '@doopage/use-modal'
+
+export const MyModal = initModal('modal_name')
+
+const Modal = () => {
+  const { open, data } = MyModal.useModal()
+  
+  if (!open) return null
+  return (
+    <div>
+      {/* modal content */}
+      <Button onClick={() => MyModal.close()}>close</Button>
+    </div>
+  )
+}
+
+export default Modal
+```
+
+in somewhere
+```tsx
+import { MyModal } from 'path/MyModal.js'
+
+MyModal.open({ data:[1,2,3] })
 ```
 
 ## License

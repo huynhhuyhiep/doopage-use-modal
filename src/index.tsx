@@ -3,7 +3,7 @@ import { proxy, useProxy } from 'valtio'
 const modalState = proxy({})
 
 export const openModal = (name: string, payload?: object) => {
-  modalState[name] = payload
+  modalState[name] = payload || {}
   modalState[name].open = true
   modalState[name].key = new Date().getTime().toString()
 }

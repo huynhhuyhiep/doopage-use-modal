@@ -61,7 +61,9 @@
   "files": [
     "dist"
   ],
-  "dependencies": {},
+  "dependencies": {
+    "valtio": "^0.5.2"
+  },
   "publishConfig": {
     "access": "public"
   }

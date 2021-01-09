@@ -1,5 +1,6 @@
 import React from 'react'
-import { Button } from '@doopage/react-ui-kit'
+// @ts-ignore
+import Button from '@doopage/react-ui-kit/dist/es/Button'
 import { openModal } from '@doopage/use-modal'
 import Modal from './modal/Modal'
 import Modal2, { modal2 } from './modal/Modal2'

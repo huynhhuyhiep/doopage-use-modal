@@ -1,6 +1,6 @@
 # @doopage/use-modal
 
-> Simple way to control modal 
+> Simple way to control modal
 
 [![NPM](https://img.shields.io/npm/v/@doopage/use-modal.svg)](https://www.npmjs.com/package/@doopage/use-modal) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
@@ -19,7 +19,7 @@ import { closeModal, useModal } from '@doopage/use-modal'
 
 const Modal = () => {
   const { open, data } = useModal('modal_name')
-  
+
   if (!open) return null
   return (
     <div>
@@ -48,7 +48,7 @@ export const MyModal = initModal('modal_name')
 
 const Modal = () => {
   const { open, data } = MyModal.useModal()
-  
+
   if (!open) return null
   return (
     <div>

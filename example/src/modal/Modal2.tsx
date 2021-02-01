@@ -15,7 +15,7 @@ const Modal2 = () => {
       {data?.map((item: number) => (
         <div key={item}>{item}</div>
       ))}
-      <Button onClick={modal2.close}>close</Button>
+      <Button onClick={() => modal2.close(true)}>close</Button>
     </div>
   )
 }

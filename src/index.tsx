@@ -1,4 +1,5 @@
 import { proxy, snapshot, subscribe, useProxy } from 'valtio'
+import { PropsWithChildren, useEffect } from 'react'
 
 export const modalState = proxy({})
 
@@ -35,4 +36,24 @@ export const enableModalLog = () => {
     const obj = snapshot(modalState) // A snapshot is an immutable object
     console.log('modalState is mutated', obj)
   })
+}
+
+export const ModalProvider = ({
+  children,
+  showLog,
+  watch
+}: {
+  children: PropsWithChildren<any>
+  showLog: boolean
+  watch?: any
+}) => {
+  useEffect(() => {
+    if (showLog) enableModalLog()
+  }, [showLog, watch])
+
+  useEffect(() => {
+    clearAllModalData()
+  }, [watch])
+
+  return children
 }

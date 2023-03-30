@@ -49,6 +49,7 @@ export const ModalProvider = ({
 }) => {
   useEffect(() => {
     if (showLog) enableModalLog()
+    else subscribe(modalState, () => {})
   }, [showLog, watch])
 
   useEffect(() => {

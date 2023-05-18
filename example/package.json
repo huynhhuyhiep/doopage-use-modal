@@ -1,42 +1,26 @@
 {
-  "name": "@doopage/use-modal-example",
-  "homepage": ".",
-  "version": "0.0.0",
+  "name": "my-app",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "node ../node_modules/react-scripts/bin/react-scripts.js start",
-    "build": "node ../node_modules/react-scripts/bin/react-scripts.js build",
-    "test": "node ../node_modules/react-scripts/bin/react-scripts.js test",
-    "eject": "node ../node_modules/react-scripts/bin/react-scripts.js eject"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
   },
   "dependencies": {
-    "@doopage/react-ui-kit": "0.1.0",
-    "@doopage/use-modal": "file:..",
-    "@types/node": "file:../node_modules/@types/node",
-    "@types/react": "file:../node_modules/@types/react",
-    "@types/react-dom": "file:../node_modules/@types/react-dom",
-    "react": "file:../node_modules/react",
-    "react-dom": "file:../node_modules/react-dom",
-    "react-scripts": "file:../node_modules/react-scripts",
-    "typescript": "file:../node_modules/typescript"
-  },
-  "devDependencies": {
-    "@babel/plugin-syntax-object-rest-spread": "^7.8.3",
-    "babel-plugin-transform-imports": "^2.0.0"
-  },
-  "eslintConfig": {
-    "extends": "react-app"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+    "@doopage/use-modal": "latest",
+    "@types/node": "20.2.0",
+    "@types/react": "18.2.6",
+    "@types/react-dom": "18.2.4",
+    "autoprefixer": "10.4.14",
+    "eslint": "8.40.0",
+    "eslint-config-next": "13.4.2",
+    "next": "13.4.2",
+    "postcss": "8.4.23",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "tailwindcss": "3.3.2",
+    "typescript": "5.0.4"
   }
 }

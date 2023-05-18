@@ -9,15 +9,26 @@ export const openModal = (name: string, payload?: object) => {
   modalState[name] = { ...rest } || {}
   modalState[name].open = true
   modalState[name].key = new Date().getTime().toString()
+
+  if ((window as any).showLog) console.log('open modal: ' + name)
 }
 
 export const closeModal = (name: string, clearData: boolean = false) => {
   if (clearData) modalState[name] = {}
   if (modalState[name]) modalState[name].open = false
+
+  if ((window as any).showLog) console.log('close modal: ' + name)
 }
 
 export const useModal = (name: string) => {
   const state = useProxy(modalState)
+
+  useEffect(() => {
+    if ((window as any).showLog) {
+      console.log('Register modal: ' + name)
+    }
+  }, [name])
+
   return state[name] || { open: false }
 }
 
@@ -48,8 +59,12 @@ export const ModalProvider = ({
   watch?: any
 }) => {
   useEffect(() => {
-    if (showLog) enableModalLog()
-    else subscribe(modalState, () => {})
+    if (showLog) {
+      enableModalLog()
+    } else subscribe(modalState, () => {})
+
+    // @ts-ignore
+    window.showLog = showLog
   }, [showLog, watch])
 
   useEffect(() => {
